@@ -1,0 +1,13 @@
+:root {
+    color-scheme: light dark;
+}
+
+navbar {
+    color: light-dark(white, black);
+}
+
+textarea {
+    field-sizing: content;
+    max-height: 100px;
+}
+

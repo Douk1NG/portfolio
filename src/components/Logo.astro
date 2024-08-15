@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+---
+
+<a class="flex items-center space-x-3 rtl:space-x-reverse" href="/">
+    <Image
+        src="/logo.png"
+        alt="aLxVa logo"
+        width={200}
+        height={40}
+        class="object-cover logo cursor-pointer drop-shadow-0"
+    />
+</a>
+
+<style>
+    .drop-shadow-0 {
+        filter: drop-shadow(0px 4px 4px #2F4BA1);
+    }
+</style>

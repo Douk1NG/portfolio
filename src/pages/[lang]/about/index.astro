@@ -1,0 +1,12 @@
+---
+import { useTranslations, getStaticPaths as gsp } from "@i18n/index";
+
+import type { Locale } from "@i18n/index";
+
+const { currentLocale } = Astro;
+
+export const getStaticPaths = gsp;
+const t = useTranslations(currentLocale as Locale);
+---
+
+<h1>{t("title")}</h1>

@@ -1,0 +1,35 @@
+---
+import { Languages } from "@i18n/index";
+import { en, es } from "@assets/svg/";
+const { currentLocale } = Astro;
+const flags = { en, es };
+---
+
+<button
+    type="button"
+    data-dropdown-toggle="language-dropdown-menu"
+    class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm rounded-lg cursor-pointer"
+>
+    {flags[currentLocale]}
+    {Languages[currentLocale]}
+</button>
+<div
+    class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700"
+    id="language-dropdown-menu"
+>
+    <ul class="py-2 font-medium" role="none">
+        {
+            Object.entries(Languages).map(([lang, label]) => (
+                <li>
+                    <a
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                        href={`/${lang}/`}
+                    >
+                        <div class="inline-flex items-center">{label}</div>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</div>

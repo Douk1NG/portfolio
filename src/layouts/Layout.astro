@@ -1,0 +1,28 @@
+---
+interface Props {
+	title: string;
+	keywords: string;
+}
+
+const { title, keywords } = Astro.props;
+const { preferredLocale, currentLocale } = Astro;
+---
+
+<!doctype html>
+<html lang={preferredLocale??currentLocale}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="aLxVa Portfolio" />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="aLxVa" />
+		<link rel="icon" href="/favicon.svg" type="image/x-icon" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+	<script is:inline src="/src/assets/js/flowbite.min.js" defer></script>
+	<script is:inline src="/src/assets/js/flowbite.min.js.map" defer></script>
+</html>

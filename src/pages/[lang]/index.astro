@@ -1,0 +1,36 @@
+---
+import { useTranslations, getStaticPaths as gsp } from "@i18n/index";
+
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+
+import type { Locale } from "@i18n/index";
+
+const { currentLocale } = Astro;
+
+export const getStaticPaths = gsp;
+const translation = useTranslations(currentLocale as Locale);
+
+const Anchors = [
+  translation("home"),
+  translation("about"),
+  translation("services"),
+  translation("pricing"),
+  translation("contact"),
+];
+---
+
+<Layout
+  title="aLxVa :: Portafolio"
+  keywords="aLxVa, Portfolio, Web developer, Fullstack developer, Frontend developer, Backend developer"
+>
+  <main>
+    <Header Anchors={Anchors} />
+  </main>
+</Layout>
+
+<style is:global>
+  :root {
+    color-scheme: light dark;
+  }
+</style>
